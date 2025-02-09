@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
@@ -5,7 +6,7 @@ const cors = require('cors')
 
 // Creating a database connection
 mongoose.connect(
-    "mongodb+srv://chitrankusarkar1:rijuriju@cluster0.cu1r9.mongodb.net/"
+    `mongodb+srv://${process.env.MongoUsername}:${process.env.MongoPassword}@cluster0.cu1r9.mongodb.net/`
     )
     .then(() => console.log("MongoDB Connected"))
     .catch((error) => console.error(error));
